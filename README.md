@@ -34,7 +34,7 @@ Namecheap hosts DNS. The four apex A records point to `185.199.108.153`, `185.19
 
 ## Search and machine-readable content
 
-The HTML includes a canonical URL, a concise description, Open Graph and Twitter card metadata, and Organization and WebSite JSON-LD. The logo provides the social preview. No additional marketing copy is added to the visible page.
+The HTML includes a canonical URL, a concise description, Open Graph and Twitter card metadata, and Organization and WebSite JSON-LD. A 1200 × 630 PNG render of the ASCII landscape and EZ monogram provides the social preview (`assets/ezmedia-ascii-preview.png`). No additional marketing copy is added to the visible page.
 
 - `robots.txt` permits crawling and links to `sitemap.xml`
 - `sitemap.xml` lists the canonical homepage; update its modification date when the page changes
