@@ -18,20 +18,31 @@ python3 -m http.server 4173 --bind 127.0.0.1
 
 Then visit `http://127.0.0.1:4173`.
 
-## Publish on GitHub Pages
+## Hosting
 
-1. Create a GitHub repository for this site
-2. Upload this folder's contents, keeping `index.html` at the repository root
-3. In the repository, open Settings → Pages
-4. Select Deploy from a branch, then `main` and the root folder
-5. Save and wait for the published URL
+- Website: [ez.media](https://ez.media/)
+- Repository: [ericzawo/ezmedia-site](https://github.com/ericzawo/ezmedia-site)
+- GitHub Pages source: `main`, repository root
+- Custom domain: `ez.media`, recorded in `CNAME`
 
-All asset paths are relative, so the page also works at a GitHub project URL.
+Push changes to `main` to publish. GitHub Pages serves the committed static files with no application server. Asset paths are relative.
 
-For your domain, first verify it in your GitHub account's Pages settings, then add it under the repository's Settings → Pages → Custom domain. Configure the DNS records at your domain provider using GitHub's current instructions below, then enable Enforce HTTPS. Keep your email's MX and TXT records intact. A `CNAME` file is intentionally omitted until the exact domain is confirmed.
+Namecheap hosts DNS. The four apex A records point to `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, and `185.199.111.153`. The `www` CNAME points to `ericzawo.github.io`. Google Workspace MX records are independent of the website and must be preserved.
 
 - [Creating a GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
 - [Connecting a custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
+
+## Search and machine-readable content
+
+The HTML includes a canonical URL, a concise description, Open Graph and Twitter card metadata, and Organization and WebSite JSON-LD. The logo provides the social preview. No additional marketing copy is added to the visible page.
+
+- `robots.txt` permits crawling and links to `sitemap.xml`
+- `sitemap.xml` lists the canonical homepage; update its modification date when the page changes
+- `llms.txt` is the standard AI-readable summary; `llm.txt` is an identical compatibility copy
+- `index.md` provides a Markdown version of the landing page
+- `404.html` provides a noindex error page with a link home
+
+Metadata and discovery files help crawlers interpret the site; they do not guarantee indexing or rankings.
 
 ## Edit
 
