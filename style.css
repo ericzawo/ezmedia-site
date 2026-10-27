@@ -1,0 +1,106 @@
+:root {
+  color-scheme: light;
+  --paper: #f6f5f2;
+  --ink: #323630;
+  --landscape-ground: #111915;
+  --landscape-ink: #c3cec5;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+::selection { background: var(--ink); color: var(--paper); }
+
+.page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 36px 24px;
+}
+
+.identity { width: min(460px, 100%); --caption-gap: 17px; }
+.artwork {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 23 / 15;
+  overflow: hidden;
+  margin: 0;
+  isolation: isolate;
+  background: var(--landscape-ground);
+  animation: artwork-in 300ms ease-out both;
+}
+
+@keyframes artwork-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.landscape, .poster, .ascii { position: absolute; inset: 0; width: 100%; height: 100%; }
+.poster { display: block; object-fit: cover; }
+.ascii { display: block; visibility: hidden; }
+.artwork.is-ready .ascii { visibility: visible; }
+.artwork.is-ready .poster { visibility: hidden; }
+
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 41%;
+  width: auto;
+  aspect-ratio: 585 / 736;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: artwork-in 300ms ease-out 700ms both;
+}
+.logo text {
+  white-space: pre;
+  font-variant-ligatures: none;
+  font-weight: 700;
+  stroke: #fff;
+  stroke-width: 1.4;
+  paint-order: stroke;
+}
+
+.inquiries {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: .005em;
+  color: #6c6d67;
+}
+.inquiries {
+  margin: var(--caption-gap) 0 0;
+}
+.inquiries a {
+  display: inline-block;
+  color: var(--ink);
+  text-decoration: none;
+  padding-block: 5px;
+  margin-block: -5px;
+}
+.inquiries a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.inquiries a:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 520px) {
+  .identity { width: min(380px, 100%); --caption-gap: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

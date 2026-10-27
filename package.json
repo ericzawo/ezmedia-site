@@ -1,0 +1,12 @@
+{
+  "name": "ezmedia-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/logo.js --bundle --format=iife --target=es2020 --minify --legal-comments=inline --outfile=script.js"
+  },
+  "devDependencies": {
+    "asciify-engine": "4.32.8",
+    "esbuild": "0.28.2"
+  }
+}

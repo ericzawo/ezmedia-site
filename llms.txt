@@ -1,0 +1,15 @@
+# ezmedia
+
+> ezmedia is Eric Zaworski's boutique social media agency.
+
+Website: https://ez.media/
+All inquiries: eric@ez.media
+
+## Website
+
+- [ezmedia](https://ez.media/): The official ezmedia landing page and contact information.
+- [Markdown homepage](https://ez.media/index.md): A text version of the landing page.
+
+## Founder
+
+- [Eric Zaworski](https://ericzaworski.com/): The founder's professional background and work.
